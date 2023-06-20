@@ -23,8 +23,13 @@ export const DataProvider = (props) => {
         setLists(newLists)
     }
 
+    const del = id => {
+        const newLists = lists.filter(item => item.id !== id)
+        setLists(newLists)
+    }
+
     return (
-        <DataContext.Provider value={{ lists, add }}>
+        <DataContext.Provider value={{ lists, add, del }}>
             {props.children}
         </DataContext.Provider>
     )

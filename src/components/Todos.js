@@ -2,9 +2,13 @@ import React, { useContext } from 'react'
 import { DataContext } from '../context/DataContext'
 
 const Todos = () => {
-    const { del, lists } = useContext(DataContext)
+    const { lists, dispatch } = useContext(DataContext)
     const remove = id => {
-        del(id)
+        const action = {
+            type: 'DEL',
+            payload: id
+        }
+        dispatch(action)
     }
     return (
         <ul>
